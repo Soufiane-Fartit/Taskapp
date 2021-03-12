@@ -1,0 +1,11 @@
+<div class="task-list-container has-background-light">
+    <h1 class="title has-text-primary">
+        Tasks {{ selected }}
+    </h1>
+    
+    <li *ngFor="let item of currentList">
+        <app-taskitem [id]=item.id [taskText]=item.tasks [state]=item.states (_state)=updateState($event) (_delete)=deleteTask($event)></app-taskitem>
+    </li>
+    <button class="button is-primary hax-text"> + New Task </button>
+
+</div>

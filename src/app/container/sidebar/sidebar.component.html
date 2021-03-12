@@ -1,0 +1,15 @@
+<div class="sidebar has-background-white">
+
+    <h1 class="title has-text-primary">
+        Sidebar
+    </h1>
+
+    <div class="list-menu">
+        <li *ngFor="let item of Lists">
+            <app-listitem [listTitle]=item.title [id]=item.id [selected]=selected (_id)=setActive($event)></app-listitem>
+        </li>
+    </div>
+
+    <button class="button is-primary hax-text"> + New List </button>
+
+</div>

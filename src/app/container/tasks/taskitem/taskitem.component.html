@@ -1,0 +1,19 @@
+<div *ngIf="state;else notDone" class="task complete">
+    {{ taskText }}
+    <div class="button-container">
+        <button class="button is-small is-primary hax-text"> Edit </button>
+        <button class="button is-small is-info hax-text" (click)='changeState()'> Cancel </button>
+        <button class="delete is-small" (click)='deleteTask()'> Delete </button>
+    </div>
+</div>
+
+<ng-template #notDone>
+    <div class="task">
+        {{ taskText }}
+        <div class="button-container">
+            <button class="button is-small is-primary hax-text"> Edit </button>
+            <button class="button is-small is-info hax-text" (click)='changeState()'> Done </button>
+            <button class="delete is-small" (click)='deleteTask()'> Delete </button>
+        </div>
+    </div>
+</ng-template>

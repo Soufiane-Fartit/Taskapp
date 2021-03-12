@@ -1,0 +1,9 @@
+<a *ngIf="isSelected; else noSelected" class="list-menu-item is-active">
+    <p> {{ listTitle}} </p>
+</a>
+
+<ng-template #noSelected>
+<a ng-if="isSelected==0" class="list-menu-item" (click)='selectCurrent()'>
+    <p> {{ listTitle}} </p>
+</a>
+</ng-template>

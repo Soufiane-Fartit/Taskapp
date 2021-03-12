@@ -1,0 +1,39 @@
+.task {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-top:  10px;
+    min-height: 60px;
+
+    .button-container {
+        display: inline;
+        float: right;
+
+        .button {
+            margin: 0px 8px;
+            width: 60px;
+        }
+
+        .delete {
+            margin-top: 4%;
+        }
+    }
+
+    &:not(.complete) {
+        cursor: pointer;
+        transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+        //&:active {
+        //    transform: scale(0.95);
+        //}
+
+        //&:hover {
+        //    box-shadow: 0 0 0 5px #eeeeee;
+        //}
+    }
+
+    &.complete {
+        text-decoration: line-through;
+        opacity: 0.8;
+    }
+}

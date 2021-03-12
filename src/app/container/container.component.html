@@ -1,0 +1,7 @@
+
+<div class="centered-content">
+    <div class="task-manager-container">
+        <app-sidebar [Lists]="Lists" [selected]="selected" (_selected)=setActive($event)></app-sidebar>
+        <app-tasks [Lists]="Lists" [selected]="selected" (_update)=updateState($event) (_deletedUpdate)=deleteTask($event)></app-tasks>
+    </div>
+</div>

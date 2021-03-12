@@ -1,0 +1,29 @@
+@import "../../../styles-vars.scss";
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+
+    background: white;
+    width: 250px;
+
+    padding: 42px;
+
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    height: 100%;
+}
+.title {
+    font-family: 'Lato';
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.list-menu {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    flex-grow: 1;
+}
