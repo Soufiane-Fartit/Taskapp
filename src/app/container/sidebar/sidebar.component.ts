@@ -37,6 +37,7 @@ export class SidebarComponent implements OnInit {
     dialogConfig.id = "modal-component";
     dialogConfig.height = "350px";
     dialogConfig.width = "600px";
+    dialogConfig.data = {"windowType":"List"};
     const modalDialog = this.matDialog.open(NewPopupComponent, dialogConfig);
     modalDialog.afterClosed().subscribe(() => {
       this.newList = modalDialog.componentInstance.ListName;

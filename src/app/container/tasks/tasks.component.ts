@@ -56,6 +56,7 @@ export class TasksComponent implements OnInit {
     dialogConfig.id = "modal-component";
     dialogConfig.height = "350px";
     dialogConfig.width = "600px";
+    dialogConfig.data = {"windowType":"Task"};
     const modalDialog = this.matDialog.open(NewPopupComponent, dialogConfig);
     modalDialog.afterClosed().subscribe(() => {
       this.newTask = modalDialog.componentInstance.ListName;
