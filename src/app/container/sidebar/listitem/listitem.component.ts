@@ -11,6 +11,7 @@ export class ListitemComponent implements OnInit {
   @Input() id : number;
   @Output() _id = new EventEmitter<number>();
   @Input() selected : number;
+  @Output() _delete = new EventEmitter<number>();
 
   isSelected : boolean= false;
   
@@ -20,6 +21,11 @@ export class ListitemComponent implements OnInit {
     //this.isSelected = true;
     this._id.emit(this.id);
     console.log('sended active change request for', this.id);
+  }
+
+  deleteList(){
+    this._delete.emit(this.id);
+    console.log('sent delete request')
   }
 
   ngOnInit(): void {

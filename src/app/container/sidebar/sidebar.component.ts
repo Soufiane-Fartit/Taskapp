@@ -14,6 +14,7 @@ export class SidebarComponent implements OnInit {
   @Input() selected: number;
   @Output() _selected = new EventEmitter<number>();
   @Output() _newList = new EventEmitter<string>();
+  @Output() _deletedUpdate = new EventEmitter<number>();
 
   newList:string="";
 
@@ -28,6 +29,16 @@ export class SidebarComponent implements OnInit {
   sendNewActive() {
     this._selected.emit(this.selected);
     console.log('sended active change 2 request for', this.selected);
+  }
+
+  deleteList(n:number) {
+    console.log('received delete request for ', n);
+    this.updateDeletedList(n);
+  }
+
+  updateDeletedList(n:number){
+    this._deletedUpdate.emit(n);
+    console.log('sent delete update request for', n);
   }
 
   openPopup() {

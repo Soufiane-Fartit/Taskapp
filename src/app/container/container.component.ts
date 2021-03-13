@@ -57,6 +57,17 @@ export class ContainerComponent implements OnInit {
     window.location.reload();
   }
 
+  deleteList(n:number) {
+    console.log('root received delete request for', n);
+    if (this.selected==n) { this.selected=this.Lists[0]['id']};
+    this.Lists = this.Lists.filter(list => list.id != n);
+    sessionStorage.setItem('Lists', JSON.stringify(this.Lists));
+    sessionStorage.setItem('selected', JSON.stringify(this.selected));
+    this.new=false;
+    sessionStorage.setItem('new', JSON.stringify(this.new));
+    window.location.reload();
+  }
+
   addNewList(newList:string) {
     var n = this.Lists.length;
     this.Lists.push({'id': n,'title':newList, 'tasks':[] , 'states':[] });
