@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TaskitemComponent } from './taskitem/taskitem.component';
+import { NewPopupComponent } from '../sidebar/new-popup/new-popup.component';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-tasks',
@@ -12,10 +14,13 @@ export class TasksComponent implements OnInit {
   @Input() selected: number;
   @Output() _update = new EventEmitter<object>();
   @Output() _deletedUpdate = new EventEmitter<object>();
+  @Output() _newTask = new EventEmitter<string>();
+
+  newTask:string="";
 
   currentList: { tasks: string; states: boolean; }[];
   
-  constructor() { }
+  constructor(public matDialog: MatDialog) { }
 
   updateState(id:number) {
     this.Lists[this.selected]['states'][id] = !this.Lists[this.selected]['states'][id];
@@ -42,6 +47,30 @@ export class TasksComponent implements OnInit {
   updateDeletedTask(n:number){
     this._deletedUpdate.emit({selectedList:this.selected, updatedItem: n})
     console.log('sent delete update request for', n);
+  }
+
+  openPopup() {
+    console.log('oppening popup');
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.id = "modal-component";
+    dialogConfig.height = "350px";
+    dialogConfig.width = "600px";
+    const modalDialog = this.matDialog.open(NewPopupComponent, dialogConfig);
+    modalDialog.afterClosed().subscribe(() => {
+      this.newTask = modalDialog.componentInstance.ListName;
+      console.log('got new task name :', this.newTask);
+      if (this.newTask.length>0) {
+        //this.Lists[this.selected]['tasks'].push(this.newTask);
+        //this.Lists[this.selected]['states'].push(false);
+        console.log(this.Lists[this.selected]['tasks']);
+        this.sendnewTask(this.newTask);
+      }
+    });
+  }
+
+  sendnewTask(newTask:string) {
+    this._newTask.emit(newTask);
   }
 
   ngOnInit(): void {

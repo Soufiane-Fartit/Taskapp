@@ -1,11 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bulma/bulma.sass";
 @import "styles-vars.scss";
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
 
 html {
-    background-color: turquoise;
+    background-color: $turquoise;
 }
 
 html, body {
     height: 100%;
+}
+
+mat-dialog-container#modal-component {
+    background-color: $turquoise;
 }

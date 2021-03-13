@@ -6,6 +6,6 @@
     <li *ngFor="let item of currentList">
         <app-taskitem [id]=item.id [taskText]=item.tasks [state]=item.states (_state)=updateState($event) (_delete)=deleteTask($event)></app-taskitem>
     </li>
-    <button class="button is-primary hax-text"> + New Task </button>
+    <button class="button is-primary hax-text" (click)="openPopup()"> + New Task </button>
 
 </div>

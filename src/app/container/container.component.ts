@@ -57,6 +57,23 @@ export class ContainerComponent implements OnInit {
     window.location.reload();
   }
 
+  addNewList(newList:string) {
+    var n = this.Lists.length;
+    this.Lists.push({'id': n,'title':newList, 'tasks':[] , 'states':[] });
+    console.log('root received new list request', newList);
+  }
+
+  addNewTask(newTask:string) {
+    this.Lists[this.selected]['tasks'].push(newTask);
+    this.Lists[this.selected]['states'].push(0);
+    console.log('root received new task request', newTask);
+    sessionStorage.setItem('Lists', JSON.stringify(this.Lists));
+    sessionStorage.setItem('selected', JSON.stringify(this.selected));
+    this.new=false;
+    sessionStorage.setItem('new', JSON.stringify(this.new));
+    window.location.reload();
+  }
+
   ngOnInit(): void {
     //localStorage vs sessionStorage
     this.new = JSON.parse(sessionStorage.getItem('new'));

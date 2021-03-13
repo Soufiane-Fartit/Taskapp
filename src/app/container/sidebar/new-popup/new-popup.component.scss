@@ -1,0 +1,36 @@
+.box {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    min-height: 60px;
+    width: 60%;
+    height: 30%;
+    min-height: 170px;
+    max-height: 200px;
+    margin-left: 20%;
+    margin-top: 10%;
+    display: inline-block;
+
+
+    .field {
+
+        .label {
+
+        }
+
+        .control {
+
+            .input {
+
+            }
+        }
+    }
+
+    .button-container {
+
+        .button {
+            margin: 0px 8px;
+            width: 120px;
+        }
+    }
+}
